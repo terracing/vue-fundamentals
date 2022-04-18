@@ -11,16 +11,20 @@
 <body>
     <script src="https://unpkg.com/vue@3"></script>
 
-    <div id="app">{{ message }}</div>
+    <div id="app"></div>
 
     <script>
-        Vue.createApp({
+        const vm = Vue.createApp({
             data() {
                 return {
-                    message: 'Hello Vue!'
+                    message: 'Hello Vue!',
+                    textHTML: '<p>This is <strong>bold</strong></p>'
                 }
-            }
-        }).mount('#app')
+            },
+            template: `<div v-text="message"></div><div v-html="textHTML"></div>`
+        }).mount('#app');
+
+        console.log(vm);
     </script>
 </body>
 
