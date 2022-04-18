@@ -17,30 +17,28 @@
         const vm = Vue.createApp({
             data() {
                 return {
-                    counter: 0
+                    text: "Hello Vue!"
                 }
             },
             methods: {
-                submit() {
-                    this.counter = 0;
-                },
-                increment(e) {
-                    e.preventDefault();
-                    this.counter += 1;
-                },
-                decrement(e) {
-                    e.preventDefault();
-                    this.counter -= 1;
+                input(e) {
+                    this.text = e.target.value;
                 }
             },
+            /*
+             * Shorthand for
+             * v:on => @
+             * v:bind => :
+             */
             template: `
                 <div>
-                    <form v-on:reset.prevent="submit">
-                        <h1>Counter {{counter }}</h1>
-                        <button v-on:click="increment">Increment</button> <button v-on:click="decrement">Decrement</button> <button type="reset">Reset</button>
-                    </form>
+                    <p>{{ text }}</p>
+                    <p><input type="text" @input="input" :value="text" /></p>
+                    <p><input type="text" v-model="text"></p>
                 </div>`
         }).mount('#app');
+
+        console.log(vm)
     </script>
 </body>
 
