@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Odia:wght@200&display=swap" rel="stylesheet">  
+    <style>
+        body, button {
+            font-family: 'Anek Odia', sans-serif;
+            font-size: 20px;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .container > div {
+            flex: auto;
+            padding: 36vh 0;
+        }
+        .open {
+            background-color: #c1fdc1;
+        }
+        .closed {
+            background-color: #ffc1c1;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <div id="app" class="container"></div>
+
+    <script>
+        const vm = Vue.createApp({
+            data() {
+                return {
+                    text: "Hello Vue!",
+                    open: false,
+                    styleButton: {
+                        backgroundColor: "#e5e5e5",
+                        padding: "12px",
+                        border: "none",
+                        borderRadius: "6px"
+                    },
+                    username: ""
+                }
+            },
+            watch: {
+                text(value, old) {
+                    console.log("Watcher!" , value, old)
+                },
+                open(value) {
+                    if(value){
+                        this.text = "Close session"
+                    } else{
+                        this.text = "Login to session"
+                        this.username = ""
+                    }
+                        
+                }
+            },
+            computed: {
+                label() {
+                    return this.open? "Exit": "Login"
+                },
+                styles() {
+                    return this.open ?  ['open'] : ['closed']
+                }
+            },
+            template: `
+                <div :class="styles">
+                    <p>{{ text }}</p>
+                    <div v-if="open">
+                        <p>Hello {{ username }}</p>
+                    </div>
+                    <div v-else>
+                        <form>
+                            <p><label>Username</label></p>
+                            <p><input type="text" v-model="username"></p>
+                        </form>
+                    </div>
+                    <p>
+                        <button @click="open = !open"  :style="styleButton">
+                            <span v-if="!open">Login</span>
+                            <span v-else>Exit</span>
+                        </button>
+                    </p>
+                </div>`
+        }).mount('#app');
+
+        console.log(vm);
+    </script>
+</body>
+
+</html>
