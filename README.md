@@ -1,3 +1,3 @@
 # Vue.js Fundamentals
 
-Aprende los fundamentos de Vue.js, el framework progresivo. Conoce cómo funciona la reactividad dentro de Vue.js y cómo podemos usarlo para empezar a construir aplicaciones frontend con esta librería.
+Learn the basics of Vue.js, the progressive framework. Learn how reactivity works within Vue.js and how we can use it to start building frontend applications with this library.
