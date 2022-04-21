@@ -27,16 +27,11 @@
             flex: auto;
             padding: 36vh 0;
         }
-        .open {
-            background-color: #c1fdc1;
-        }
-        .closed {
-            background-color: #ffc1c1;
-        }
-        .item {
-            border-bottom: 1px solid #628662;
-            text-align: left;
-            padding: 0 10px;
+        input {
+            font-family: 'Anek Odia', sans-serif;
+            border-radius: 6px;
+            padding: 6px;
+            border: 1px solid #333;
         }
     </style>
 </head>
@@ -49,39 +44,30 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    items: ["Items 1", "Items 2", "Items 3", "Items 4"]
-                }
-            },
-            methods: {
-                remove(i) {
-                    const items = this.items.filter((el, index) => index !== i);
-                    this.items = items;
-                }
+                    text: "Hello Vue!"
+                };
             },
             template: `
-                <ul>
-                    <v-item
-                        v-for="(item, i) in items"
-                        v-bind:text="item"
-                        v-on:remove="remove(i)"
-                    ></v-item>
-                </ul>
+                <div>
+                    <p>{{ text }}</p>
+                    <v-input v-model:value="text" />
+                </div>
             `
         });
 
-        app.component("v-item", {
+        app.component("v-input", {
             props: {
-                text: String,
+                inputText: String
             },
             methods: {
-                rm() {
-                    this.$emit("remove");
+                input(e) {
+                    this.$emit("update:value", e.target.value);
                 }
             },
-            template: `<li v-on:click="rm">{{ text }}</li>`
-        })
-        
-        const vm = app.mount('#app');
+            template: `<input type="text" v-bind:value="inputText" v-on:input="input" />`
+        });
+
+        const vm = app.mount("#app");
     </script>
 </body>
 
