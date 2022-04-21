@@ -52,15 +52,19 @@
                     items: ["Items 1", "Items 2", "Items 3", "Items 4"]
                 }
             },
-            watch: {
-                
-            },
-            computed: {
-                
+            methods: {
+                remove(i) {
+                    const items = this.items.filter((el, index) => index !== i);
+                    this.items = items;
+                }
             },
             template: `
                 <ul>
-                    <v-item v-for="item in items" v-bind:text="item"></v-item>
+                    <v-item
+                        v-for="(item, i) in items"
+                        v-bind:text="item"
+                        v-on:click="remove(i)"
+                    ></v-item>
                 </ul>
             `
         });
