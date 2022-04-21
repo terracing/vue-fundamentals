@@ -47,27 +47,27 @@
                     text: "Hello Vue!"
                 };
             },
+            provide() {
+                return {
+                    anotherText: this.text
+                };
+            },
             template: `
-                <div>
-                    <p>{{ text }}</p>
-                    <v-input v-model:value="text" />
-                </div>
+                <div>{{ text }}</div>
+                <another />
             `
         });
-
-        app.component("v-input", {
-            props: {
-                inputText: String
-            },
-            methods: {
-                input(e) {
-                    this.$emit("update:value", e.target.value);
-                }
-            },
-            template: `<input type="text" v-bind:value="inputText" v-on:input="input" />`
+        
+        app.component("another", {
+            template: `<third />`
         });
 
-        const vm = app.mount("#app");
+        app.component("third", {
+            inject: ["anotherText"],
+            template: `<div>{{ anotherText }}</div>`
+        });
+
+        const vm =  app.mount("#app");
     </script>
 </body>
 
