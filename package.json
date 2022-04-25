@@ -1,0 +1,23 @@
+{
+  "name": "vue-fundamentals",
+  "version": "1.0.0",
+  "description": "Learn the basics of Vue.js, the progressive framework. Learn how reactivity works within Vue.js and how we can use it to start building frontend applications with this library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terracing/vue-fundamentals.git"
+  },
+  "keywords": [
+    "VueJS",
+    "JS"
+  ],
+  "author": "Omar Terrazas",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/terracing/vue-fundamentals/issues"
+  },
+  "homepage": "https://github.com/terracing/vue-fundamentals#readme"
+}
