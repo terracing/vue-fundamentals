@@ -1,0 +1,47 @@
+{
+  "name": "vue-fundamentals",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Learn the basics of Vue.js, the progressive framework. Learn how reactivity works within Vue.js and how we can use it to start building frontend applications with this library.",
+  "author": {
+    "name": "Omar Terrazas"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "core-js": "^3.8.3",
+    "vue": "^3.2.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.12.16",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "prettier": "^2.4.1"
+  },
+  "_id": "vue-fundamentals@1.0.0",
+  "bugs": {
+    "url": "https://github.com/terracing/vue-fundamentals/issues"
+  },
+  "homepage": "https://github.com/terracing/vue-fundamentals#readme",
+  "keywords": [
+    "Vue.js",
+    "Javascript"
+  ],
+  "license": "GPL-3.0",
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terracing/vue-fundamentals.git"
+  }
+}
