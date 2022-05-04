@@ -1,10 +1,17 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
+  <div>
+    <h1>{{ text }}</h1>
+    <p>{{ another }}</p>
+  </div>
 </template>
 
 <script>
+import base from "@/mixins/base";
+
 export default {
   name: "App",
+  mixins: [base],
   data() {
     return {
       text: "Hello Vue!",
